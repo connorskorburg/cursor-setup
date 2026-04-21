@@ -1,6 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
 
+/** Run checks on each request so prod uses current env (not build-time prerender). */
+export const dynamic = 'force-dynamic';
+
 async function checkSupabase() {
   try {
     const supabase = createClient(
